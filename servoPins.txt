@@ -1,0 +1,6 @@
+claw = 6
+wrist = 7
+arm = 9
+shoulder =10
+base =11
+base = 8

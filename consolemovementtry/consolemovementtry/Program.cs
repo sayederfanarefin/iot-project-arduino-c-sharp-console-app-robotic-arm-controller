@@ -51,8 +51,15 @@ namespace consolemovementtry
                     }
                     else if (selected == 1)
                     {
-                        shoulder++;
-                        Console.WriteLine("shoulder" + shoulder.ToString());
+                        if (shoulder < 180) {
+                            shoulder++;
+                            Console.WriteLine("shoulder" + shoulder.ToString());
+                        }
+                        else
+                        {
+                            Console.WriteLine("shoulder is at max");
+                        }
+                        
                     }
                     else if (selected == 2)
                     {
@@ -122,7 +129,7 @@ namespace consolemovementtry
                     Console.WriteLine("shoulder");
                     selected = 1;
                 }
-                else if (keyInfo.Key == ConsoleKey.W)
+                else if (keyInfo.Key == ConsoleKey.A)
                 {
                     //wrist up down
                     Console.WriteLine("arm");
@@ -156,6 +163,7 @@ namespace consolemovementtry
                                  wrist.ToString() + "," +
                                  claw.ToString();
 
+                //"1,45,678,3,09,67"
                 port.Write(return_);
             }
             //Console.ReadLine();

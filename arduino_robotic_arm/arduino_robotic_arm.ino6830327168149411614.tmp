@@ -1,0 +1,20 @@
+#include <Servo.h>
+
+
+Servo base1,base2,arm,shoulder,wrist,claw;
+
+int base1_deg,base2_deg,arm_deg,shoulder_deg,wrist_deg,claw_deg;
+void setup() {
+  base1.attach(9);
+  base2.attach(9);
+  arm.attach(9);
+  shoulder.attach(9);
+  wrist.attach(9);
+  claw.attach(9);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+    Serial.read();
+}
