@@ -22,8 +22,7 @@ void setup() {
     base2.write(base2_deg);
     arm.write(arm_deg);
     shoulder.write(shoulder_deg);
-   //wrist.write(wrist_deg);
-   claw.write(claw_deg);
+   wrist.write(wrist_deg);
    
   Serial.begin(9600);
 }
@@ -66,13 +65,13 @@ String shoulder_str = Serial.readStringUntil(',');
     Serial.println(claw_deg);
     */
     
-    base1.write(base1_deg);
-    base2.write(base2_deg);
-    arm.write(arm_deg);
-    shoulder.write(shoulder_deg);
+   // base1.write(base1_deg);
+    //base2.write(base2_deg);
+   // arm.write(arm_deg);
+   // shoulder.write(shoulder_deg);
    // wrist.write(wrist_deg);
     claw.write(claw_deg);
-    delay(1);
+    delay(100);
   }
   
     

@@ -20,7 +20,7 @@ namespace consolemovementtry
             SerialPort port = new SerialPort(portName, 9600);
             port.Open();
 
-            int base1 = 0;
+            int base1 = 5;
             int base2 = 180;
             int shoulder = 0;
             int arm = 0;
@@ -45,14 +45,14 @@ namespace consolemovementtry
                     if (selected == 0)
                     {
                         
-                        base1++;
-                        base2--;
+                        base1= base1+10;
+                        base2 = base2-10;
                         Console.WriteLine("base" +base1.ToString());
                     }
                     else if (selected == 1)
                     {
                         if (shoulder < 180) {
-                            shoulder++;
+                            shoulder=shoulder+20;
                             Console.WriteLine("shoulder" + shoulder.ToString());
                         }
                         else
@@ -63,7 +63,7 @@ namespace consolemovementtry
                     }
                     else if (selected == 2)
                     {
-                        arm++;
+                        arm=arm+20;
                         Console.WriteLine("arm" + arm.ToString());
                     }
                     else if (selected == -1)
@@ -81,18 +81,18 @@ namespace consolemovementtry
                     if (selected == 0)
                     {
 
-                        base1--;
-                        base2++;
+                        base1= base1-10;
+                        base2= base2+10;
                         Console.WriteLine("base" + base1.ToString());
                     }
                     else if (selected == 1)
                     {
-                        shoulder--;
+                        shoulder=shoulder-20;
                         Console.WriteLine("shoulder" + shoulder.ToString());
                     }
                     else if (selected == 2)
                     {
-                        arm--;
+                        arm=arm-20;
                         Console.WriteLine("arm" + arm.ToString());
                     }
                     else if (selected == -1)
@@ -107,13 +107,13 @@ namespace consolemovementtry
                 }
                 else if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                    claw--;
+                    claw=claw-60;
                     Console.WriteLine("claw close "+ claw.ToString());
                     
                 }
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    claw++;
+                    claw=claw+60;
                     Console.WriteLine("claw open "+ claw.ToString());
                    
                 }
