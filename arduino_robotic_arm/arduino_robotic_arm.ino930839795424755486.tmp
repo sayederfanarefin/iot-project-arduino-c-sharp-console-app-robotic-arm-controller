@@ -40,7 +40,7 @@ void setup() {
 void loop() {
   
   if(Serial.available()>0){
-
+    Serial.println("a");
       String base1_str  = Serial.readStringUntil(',');
     Serial.read(); //next character is comma, so skip it using this
     
@@ -56,11 +56,7 @@ void loop() {
     String wrist_str = Serial.readStringUntil(',');
     Serial.read(); //next character is comma, so skip it using this
     
-    String claw_str = Serial.readStringUntil(',');
-    Serial.read();
-    
-    
-    String token = Serial.readStringUntil('\0');
+    String claw_str  = Serial.readStringUntil('\0');
 
     base1_deg_new = base1_str.toInt();
     base2_deg_new = base2_str.toInt();
@@ -93,62 +89,40 @@ void loop() {
     if(arm_deg != arm_deg_new ){
 
       if(arm_deg < arm_deg_new){
-        while(arm_deg <= arm_deg_new){
-          arm_deg++;
-          arm.write(arm_deg);
-          delay(10);
+        while(arm_deg < arm_deg_new){
+          
         }
       }else if(arm_deg > arm_deg_new){
-        while(arm_deg >= arm_deg_new){
-          arm_deg--;
-          arm.write(arm_deg);
-          delay(10);
-        }
+        while(arm_deg > arm_deg_new){
+        
+         }
       }
       arm_deg = arm_deg_new;
 
+      
+       arm.write(arm_deg);
+       delay(10);
     }
 
    if(shoulder_deg != shoulder_deg_new ){
 
-      if(shoulder_deg < shoulder_deg_new){
-        while(shoulder_deg <= shoulder_deg_new){
-          shoulder_deg++;
-          shoulder.write(shoulder_deg);
-          delay(10);
-        }
-      }else if(shoulder_deg > shoulder_deg_new){
-        while(shoulder_deg >= shoulder_deg_new){
-          shoulder_deg--;
-          shoulder.write(shoulder_deg);
-          delay(10);
-        }
-      }
       shoulder_deg = shoulder_deg_new;
+      
+       shoulder.write(shoulder_deg);
+       delay(10);
     }
     
    // wrist.write(wrist_deg);
 
     if(claw_deg != claw_deg_new ){
 
-      if(claw_deg < claw_deg_new){
-        while(claw_deg <= claw_deg_new){
-          claw_deg++;
-          claw.write(claw_deg);
-          delay(10);
-        }
-      }else if(claw_deg > claw_deg_new){
-        while(claw_deg >= claw_deg_new){
-          claw_deg--;
-          claw.write(claw_deg);
-          delay(10);
-        }
-      }
       claw_deg = claw_deg_new;
+      
+       claw.write(claw_deg);
+       delay(10);
     }
     
-    //send the token 
-    Serial.println(token);
+    
   }
    
 }

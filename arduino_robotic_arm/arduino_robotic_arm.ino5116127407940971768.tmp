@@ -40,7 +40,7 @@ void setup() {
 void loop() {
   
   if(Serial.available()>0){
-
+    Serial.println("a");
       String base1_str  = Serial.readStringUntil(',');
     Serial.read(); //next character is comma, so skip it using this
     
@@ -147,8 +147,7 @@ void loop() {
       claw_deg = claw_deg_new;
     }
     
-    //send the token 
-    Serial.println(token);
+    
   }
    
 }

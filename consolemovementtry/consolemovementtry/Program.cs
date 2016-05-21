@@ -154,17 +154,40 @@ namespace consolemovementtry
                     System.Threading.Thread.Sleep(1000);
                     break;
                 }
+                //randomly generate a token
+              
+                Random rnd = new Random();
+                int GuidInt = rnd.Next(1, 100000000);
+                String GuidString = GuidInt.ToString() ;
+               
 
-                
                 String return_ = base1.ToString() + "," + 
                                  base2.ToString() + "," + 
                                  shoulder.ToString() + "," +
                                  arm.ToString() + "," +
                                  wrist.ToString() + "," +
-                                 claw.ToString();
+                                 claw.ToString() + "," +
+                                 GuidString;
 
                 //"1,45,678,3,09,67"
+                
                 port.Write(return_);
+                Console.WriteLine("servo angles sent..");// +return_);
+               
+                String token_back = port.ReadLine();
+                token_back.Replace(" ", "");
+
+                 Console.WriteLine("returned " + token_back);
+                int token_back_int = Convert.ToInt32(token_back);
+                if (GuidInt == token_back_int)
+                {
+                    Console.WriteLine("Servo angles written..");
+                }
+                else
+                {
+                    Console.WriteLine("uck");
+                }
+                
             }
             //Console.ReadLine();
             port.Close();
