@@ -135,17 +135,23 @@ namespace consolemovementtry
                     Console.WriteLine("arm");
                     selected = 2;
                 }
-                else if (keyInfo.Key == ConsoleKey.M)
+                else if (keyInfo.Key == ConsoleKey.J)
                 {
                     //wrist left
-                    Console.WriteLine("wrist left");
-                    wrist++;
+                    Console.WriteLine("wrist spin left");
+                    wrist=70;
                 }
-                else if (keyInfo.Key == ConsoleKey.N)
+                else if (keyInfo.Key == ConsoleKey.K)
+                {
+                    //wrist stop
+                    Console.WriteLine("wrist spinning stop");
+                    wrist = 90;
+                }
+                else if (keyInfo.Key == ConsoleKey.L)
                 {
                     //wrist right
-                    Console.WriteLine("wrist right");
-                    wrist--;
+                    Console.WriteLine("wrist spin right");
+                    wrist= 110;
                 }
                 else if (keyInfo.Key == ConsoleKey.Escape)
                 {
@@ -154,8 +160,18 @@ namespace consolemovementtry
                     System.Threading.Thread.Sleep(1000);
                     break;
                 }
+                else if (keyInfo.Key == ConsoleKey.P)
+                {
+                    //print all angles
+                    Console.WriteLine("Angles: (base1, base2, shoulder,arm,wrist,claw)"+base1.ToString() + "," +
+                                 base2.ToString() + "," +
+                                 shoulder.ToString() + "," +
+                                 arm.ToString() + "," +
+                                 wrist.ToString() + "," +
+                                 claw.ToString());
+                }
                 //randomly generate a token
-              
+
                 Random rnd = new Random();
                 int GuidInt = rnd.Next(1, 100000000);
                 String GuidString = GuidInt.ToString() ;

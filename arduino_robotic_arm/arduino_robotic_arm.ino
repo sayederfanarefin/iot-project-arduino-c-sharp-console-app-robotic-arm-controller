@@ -3,8 +3,8 @@
 
 Servo base1,base2,arm,shoulder,wrist,claw;
 
-int base1_deg=0;
-int base2_deg=180;
+int base1_deg=55;
+int base2_deg=130;
 int arm_deg=0;
 int shoulder_deg=0;
 int wrist_deg=0;
@@ -127,7 +127,7 @@ void loop() {
       shoulder_deg = shoulder_deg_new;
     }
     
-   // wrist.write(wrist_deg);
+    wrist.write(wrist_deg);
 
     if(claw_deg != claw_deg_new ){
 
